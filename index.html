@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="NAAD Masala – 100% homemade, no preservatives, authentic Indian spice blends from Daadi & Naani's kitchen. Shop Kolhapuri, Goda, Garam, and Agri Koli masalas from Mumbai, Maharashtra.">
+<meta name="author" content="NAAD Masala">
+<meta property="og:title" content="NAAD Masala – Preserving Authentic Flavours">
+<meta property="og:description" content="100% homemade masalas from Daadi & Naani's kitchen. No preservatives. Made with 100+ years of love.">
+<meta property="og:url" content="https://naadmasala.in">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://naadmasala.in">
+<title>NAAD Masala – Preserving Authentic Flavours</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Crimson+Pro:wght@300;400;600&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep-red: #8B1A1A;
+  --brick: #C0392B;
+  --turmeric: #E8A020;
+  --saffron: #F4A942;
+  --gold: #D4A017;
+  --brown: #5C3317;
+  --dark-brown: #2C1A0E;
+  --beige: #F5ECD7;
+  --light-beige: #FBF6EE;
+  --cream: #FFFDF7;
+  --teal: #2D7D8A;
+  --text-dark: #1A0A00;
+  --text-mid: #4A2C10;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Crimson Pro', Georgia, serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--beige); }
+::-webkit-scrollbar-thumb { background: var(--deep-red); border-radius: 3px; }
+
+/* ── NAVBAR ── */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 5%;
+  background: rgba(44, 26, 14, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212,160,23,0.25);
+  transition: all 0.3s ease;
+}
+#navbar.scrolled {
+  padding: 6px 5%;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.35);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px; text-decoration: none;
+}
+.nav-logo img {
+  height: 52px; width: 52px; border-radius: 50%;
+  border: 2px solid var(--gold);
+  object-fit: cover;
+}
+.nav-logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem; font-weight: 900;
+  color: var(--saffron);
+  letter-spacing: 3px;
+  line-height: 1;
+}
+.nav-logo-text span {
+  display: block; font-size: 0.6rem; letter-spacing: 4px;
+  color: rgba(244,169,66,0.65); font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300; text-transform: uppercase;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 32px; list-style: none;
+}
+.nav-links a {
+  color: rgba(245,236,215,0.85); text-decoration: none;
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.78rem;
+  letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
+  height: 1px; background: var(--turmeric); transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.nav-links a:hover { color: var(--turmeric); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-cart {
+  background: var(--deep-red); color: #fff; border: none;
+  padding: 9px 20px; border-radius: 2px; cursor: pointer;
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.75rem;
+  letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+  transition: all 0.25s;
+  position: relative;
+}
+.nav-cart:hover { background: var(--brick); transform: translateY(-1px); }
+.cart-count {
+  position: absolute; top: -6px; right: -6px;
+  background: var(--turmeric); color: var(--dark-brown);
+  width: 18px; height: 18px; border-radius: 50%;
+  font-size: 0.65rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 5px;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--beige); transition: all 0.3s;
+}
+@media(max-width:768px) {
+  .hamburger { display: flex; }
+  .nav-links {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--dark-brown); flex-direction: column; padding: 20px;
+    gap: 20px; border-top: 1px solid rgba(212,160,23,0.2);
+  }
+  .nav-links.open { display: flex; }
+}
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--dark-brown) 0%, #3D1A08 40%, #5C2A10 70%, var(--dark-brown) 100%);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden; padding-top: 80px;
+}
+.hero-pattern {
+  position: absolute; inset: 0;
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(232,160,32,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(139,26,26,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(92,51,23,0.1) 0%, transparent 70%);
+}
+.spice-particle {
+  position: absolute; border-radius: 50%; pointer-events: none;
+  animation: floatSpice 8s ease-in-out infinite;
+}
+@keyframes floatSpice {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+  33% { transform: translateY(-20px) rotate(120deg); opacity: 0.9; }
+  66% { transform: translateY(10px) rotate(240deg); opacity: 0.4; }
+}
+.hero-content {
+  position: relative; z-index: 2; text-align: center; padding: 40px 20px;
+  max-width: 800px;
+}
+.hero-badge {
+  display: inline-block;
+  border: 1px solid rgba(212,160,23,0.5);
+  padding: 6px 24px; border-radius: 30px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.7rem;
+  letter-spacing: 4px; color: var(--gold); text-transform: uppercase;
+  margin-bottom: 20px;
+  background: rgba(212,160,23,0.05);
+}
+.hero-logo-img {
+  width: 150px; height: 150px; border-radius: 50%;
+  border: 3px solid var(--gold);
+  object-fit: cover;
+  margin: 0 auto 24px;
+  display: block;
+  box-shadow: 0 0 0 8px rgba(212,160,23,0.1), 0 20px 60px rgba(0,0,0,0.5);
+  animation: glow 3s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  from { box-shadow: 0 0 0 8px rgba(212,160,23,0.1), 0 20px 60px rgba(0,0,0,0.5); }
+  to { box-shadow: 0 0 0 12px rgba(212,160,23,0.2), 0 20px 80px rgba(139,26,26,0.4); }
+}
+.hero-tagline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 900; color: var(--beige);
+  line-height: 1.1; margin-bottom: 12px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+}
+.hero-tagline em { color: var(--saffron); font-style: italic; }
+.hero-sub {
+  font-family: 'Crimson Pro', serif;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: rgba(245,236,215,0.75); margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+.hero-experience {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.75rem; letter-spacing: 3px;
+  color: var(--gold); text-transform: uppercase;
+  margin-bottom: 32px;
+}
+.hero-btns {
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+}
+.btn-primary {
+  background: var(--deep-red); color: #fff;
+  padding: 14px 36px; border: none; border-radius: 2px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.8rem;
+  letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600;
+  cursor: pointer; text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(139,26,26,0.4);
+}
+.btn-primary:hover {
+  background: var(--brick); transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(139,26,26,0.5);
+}
+.btn-outline {
+  background: transparent; color: var(--gold);
+  padding: 14px 36px; border: 1.5px solid var(--gold); border-radius: 2px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.8rem;
+  letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600;
+  cursor: pointer; text-decoration: none;
+  transition: all 0.3s;
+}
+.btn-outline:hover {
+  background: rgba(212,160,23,0.1); transform: translateY(-2px);
+}
+.hero-stats {
+  display: flex; gap: 40px; justify-content: center; margin-top: 48px;
+  flex-wrap: wrap;
+}
+.hero-stat {
+  text-align: center;
+}
+.hero-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 900; color: var(--saffron);
+}
+.hero-stat-label {
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.65rem;
+  letter-spacing: 2px; color: rgba(245,236,215,0.55); text-transform: uppercase;
+}
+
+/* ── SECTION COMMON ── */
+.section { padding: 90px 5%; }
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase;
+  color: var(--deep-red); font-weight: 600; margin-bottom: 12px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem); font-weight: 900;
+  color: var(--dark-brown); line-height: 1.15;
+}
+.section-title em { color: var(--deep-red); font-style: italic; }
+.section-divider {
+  width: 60px; height: 2px; background: var(--turmeric);
+  margin: 16px auto 0;
+}
+
+/* ── ABOUT ── */
+#about { background: var(--light-beige); }
+.about-grid {
+  display: grid; grid-template-columns: 1fr;
+  gap: 40px; align-items: center; max-width: 800px; margin: 0 auto;
+}
+.about-img-wrap {
+  position: relative;
+}
+.about-img-wrap img {
+  width: 100%; border-radius: 4px;
+  box-shadow: 20px 20px 0 var(--turmeric);
+}
+.about-label {
+  position: absolute; bottom: -20px; right: -20px;
+  background: var(--deep-red); color: #fff;
+  padding: 16px 24px; border-radius: 2px;
+  font-family: 'Playfair Display', serif; font-size: 0.9rem; font-weight: 700;
+  text-align: center; line-height: 1.3;
+}
+.about-label span { display: block; font-size: 1.4rem; }
+.about-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 900;
+  color: var(--dark-brown); margin-bottom: 20px; line-height: 1.2;
+}
+.about-text h2 em { color: var(--deep-red); font-style: italic; }
+.about-text p {
+  font-size: 1.1rem; line-height: 1.8; color: var(--text-mid);
+  margin-bottom: 16px;
+}
+.about-pills {
+  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px;
+}
+.pill {
+  background: rgba(139,26,26,0.08); border: 1px solid rgba(139,26,26,0.2);
+  color: var(--deep-red); padding: 6px 16px; border-radius: 20px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.72rem;
+  letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;
+}
+@media(max-width:768px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .about-label { right: 0; }
+}
+
+/* ── WHY CHOOSE US ── */
+#why { background: var(--dark-brown); }
+#why .section-title { color: var(--beige); }
+#why .section-eyebrow { color: var(--saffron); }
+.why-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 20px; max-width: 1100px; margin: 0 auto;
+}
+.why-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(212,160,23,0.15);
+  border-radius: 4px; padding: 32px 20px; text-align: center;
+  transition: all 0.3s;
+  backdrop-filter: blur(4px);
+}
+.why-card:hover {
+  background: rgba(212,160,23,0.08);
+  border-color: rgba(212,160,23,0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+.why-icon {
+  font-size: 2.2rem; margin-bottom: 14px; display: block;
+}
+.why-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; font-weight: 700; color: var(--saffron); margin-bottom: 8px;
+}
+.why-desc {
+  font-family: 'Crimson Pro', serif;
+  font-size: 0.9rem; color: rgba(245,236,215,0.65); line-height: 1.6;
+}
+@media(max-width:900px) {
+  .why-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media(max-width:500px) {
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── PRODUCTS ── */
+#products { background: var(--cream); }
+.products-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 28px; max-width: 1200px; margin: 0 auto;
+}
+.product-card {
+  background: #fff; border-radius: 4px;
+  box-shadow: 0 2px 20px rgba(92,51,23,0.08);
+  overflow: hidden; transition: all 0.35s;
+  cursor: pointer; position: relative;
+}
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(92,51,23,0.18);
+}
+.product-img {
+  height: 200px; overflow: hidden; position: relative;
+}
+.product-img-bg {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 4rem; transition: transform 0.4s;
+}
+.product-card:hover .prod-photo { transform: scale(1.08); }
+.product-badge {
+  position: absolute; top: 12px; left: 12px;
+  background: var(--deep-red); color: #fff;
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.6rem;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 2px;
+}
+.product-body { padding: 20px; }
+.product-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; font-weight: 700; color: var(--dark-brown);
+  margin-bottom: 6px;
+}
+.product-desc {
+  font-family: 'Crimson Pro', serif;
+  font-size: 0.95rem; color: var(--text-mid); line-height: 1.5;
+  margin-bottom: 14px;
+}
+.product-usage {
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.65rem;
+  letter-spacing: 1.5px; color: var(--teal); text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.price-options {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px;
+}
+.price-btn {
+  border: 1.5px solid var(--turmeric); background: transparent;
+  color: var(--brown); padding: 5px 10px; border-radius: 2px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.68rem;
+  letter-spacing: 0.5px; cursor: pointer; transition: all 0.2s;
+  white-space: nowrap;
+}
+.price-btn.active, .price-btn:hover {
+  background: var(--turmeric); color: var(--dark-brown); font-weight: 700;
+}
+.product-footer {
+  display: flex; align-items: center; gap: 10px;
+  border-top: 1px solid var(--beige); padding-top: 14px; margin-top: 6px;
+}
+.qty-selector {
+  display: flex; align-items: center; gap: 6px;
+}
+.qty-btn {
+  width: 28px; height: 28px; background: var(--beige); border: none;
+  border-radius: 2px; cursor: pointer; font-size: 1rem;
+  font-family: 'Josefin Sans', sans-serif; font-weight: 700;
+  color: var(--dark-brown); transition: background 0.2s;
+  display: flex; align-items: center; justify-content: center;
+}
+.qty-btn:hover { background: var(--turmeric); }
+.qty-num {
+  font-family: 'Josefin Sans', sans-serif; font-weight: 700;
+  color: var(--dark-brown); min-width: 20px; text-align: center;
+}
+.add-cart-btn {
+  flex: 1; background: var(--deep-red); color: #fff; border: none;
+  padding: 9px 12px; border-radius: 2px; cursor: pointer;
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.68rem;
+  letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;
+  transition: all 0.2s;
+}
+.add-cart-btn:hover { background: var(--brick); }
+.add-cart-btn.added { background: #2D7D4A; }
+@media(max-width:1000px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width:540px) { .products-grid { grid-template-columns: 1fr; } }
+
+/* ── REVIEWS ── */
+#reviews { background: var(--light-beige); }
+.reviews-carousel {
+  max-width: 1100px; margin: 0 auto; position: relative;
+}
+.reviews-track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.review-card {
+  background: #fff; border-radius: 4px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(92,51,23,0.08);
+  display: flex; flex-direction: column;
+  min-height: 0;
+}
+@media(max-width:900px) { .reviews-track { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:560px) { .reviews-track { grid-template-columns: 1fr; } }
+.review-stars { color: var(--turmeric); font-size: 1.1rem; margin-bottom: 14px; }
+.review-text {
+  font-family: 'Crimson Pro', serif; font-size: 1rem;
+  line-height: 1.6; color: var(--text-mid); margin-bottom: 16px;
+  font-style: italic; flex: 1;
+  word-break: break-word;
+}
+.review-text::before { content: '"'; font-size: 2rem; color: var(--turmeric); line-height: 0.5; }
+.reviewer {
+  display: flex; align-items: center; gap: 12px;
+}
+.reviewer-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; background: var(--beige);
+}
+.reviewer-name {
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.8rem;
+  font-weight: 700; letter-spacing: 1px; color: var(--dark-brown);
+}
+.reviewer-loc {
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.65rem;
+  color: var(--text-mid); letter-spacing: 1px;
+}
+.carousel-nav {
+  display: flex; gap: 12px; justify-content: center; margin-top: 28px;
+}
+.carousel-dot {
+  width: 8px; height: 8px; border-radius: 50%; border: none;
+  background: rgba(92,51,23,0.2); cursor: pointer; transition: all 0.3s;
+}
+.carousel-dot.active { background: var(--deep-red); width: 24px; border-radius: 4px; }
+.review-form-wrap {
+  max-width: 600px; margin: 50px auto 0;
+  background: #fff; padding: 32px; border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(92,51,23,0.08);
+}
+.review-form-wrap h3 {
+  font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700;
+  color: var(--dark-brown); margin-bottom: 20px; text-align: center;
+}
+.star-input { display: flex; gap: 6px; justify-content: center; margin-bottom: 16px; }
+.star-input span {
+  font-size: 1.8rem; cursor: pointer; color: #ddd; transition: color 0.2s;
+}
+.star-input span.lit, .star-input span:hover { color: var(--turmeric); }
+.form-group { margin-bottom: 14px; }
+.form-group input, .form-group textarea {
+  width: 100%; padding: 12px 14px;
+  border: 1.5px solid var(--beige); border-radius: 2px;
+  font-family: 'Crimson Pro', serif; font-size: 1rem; color: var(--text-dark);
+  transition: border-color 0.2s; background: var(--cream);
+}
+.form-group input:focus, .form-group textarea:focus {
+  outline: none; border-color: var(--turmeric);
+}
+.form-group textarea { height: 90px; resize: vertical; }
+@media(max-width:768px) {
+  .review-card { min-width: calc(100% - 0px); }
+}
+
+/* ── RECIPES ── */
+#recipes { background: var(--dark-brown); }
+#recipes .section-title { color: var(--beige); }
+#recipes .section-eyebrow { color: var(--saffron); }
+.recipes-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 24px; max-width: 1100px; margin: 0 auto;
+}
+.recipe-card {
+  border-radius: 4px; overflow: hidden;
+  cursor: pointer; position: relative;
+  transition: transform 0.3s;
+}
+.recipe-card:hover { transform: translateY(-6px); }
+.recipe-card:hover .recipe-overlay { opacity: 1; }
+.recipe-img {
+  height: 220px; overflow: hidden;
+}
+.recipe-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.4s;
+}
+.recipe-card:hover .recipe-img img { transform: scale(1.08); }
+.recipe-body {
+  background: rgba(255,255,255,0.06); padding: 18px;
+  border: 1px solid rgba(212,160,23,0.15);
+  border-top: none;
+}
+.recipe-masala-tag {
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.6rem;
+  letter-spacing: 2px; color: var(--saffron); text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.recipe-name {
+  font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700;
+  color: var(--beige); margin-bottom: 8px;
+}
+.recipe-brief {
+  font-family: 'Crimson Pro', serif; font-size: 0.9rem;
+  color: rgba(245,236,215,0.6); line-height: 1.5; margin-bottom: 12px;
+}
+.recipe-view-btn {
+  background: transparent; border: 1px solid var(--saffron);
+  color: var(--saffron); padding: 7px 16px; border-radius: 2px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.65rem;
+  letter-spacing: 2px; text-transform: uppercase; cursor: pointer;
+  transition: all 0.2s;
+}
+.recipe-view-btn:hover { background: var(--saffron); color: var(--dark-brown); }
+@media(max-width:900px) { .recipes-grid { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width:500px) { .recipes-grid { grid-template-columns: 1fr; } }
+
+/* ── INSTAGRAM ── */
+#instagram { background: var(--beige); }
+.insta-grid {
+  display: grid; grid-template-columns: repeat(6, 1fr);
+  gap: 6px; max-width: 1000px; margin: 0 auto 32px;
+}
+.insta-cell {
+  aspect-ratio: 1; overflow: hidden; border-radius: 2px; position: relative;
+  cursor: pointer;
+}
+.insta-cell-bg {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; transition: transform 0.3s;
+}
+.insta-cell:hover .insta-cell-bg { transform: scale(1.08); }
+.insta-overlay {
+  position: absolute; inset: 0; background: rgba(139,26,26,0.7);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.3s;
+  font-size: 1.5rem;
+}
+.insta-cell:hover .insta-overlay { opacity: 1; }
+.insta-handle {
+  text-align: center; font-family: 'Josefin Sans', sans-serif;
+  font-size: 1rem; letter-spacing: 3px; color: var(--dark-brown);
+}
+.insta-handle a { color: var(--deep-red); text-decoration: none; font-weight: 700; }
+@media(max-width:600px) { .insta-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* ── CONTACT ── */
+#contact { background: var(--light-beige); }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 50px; max-width: 1000px; margin: 0 auto;
+}
+.contact-info h3 {
+  font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700;
+  color: var(--dark-brown); margin-bottom: 20px;
+}
+.contact-info p {
+  font-family: 'Crimson Pro', serif; font-size: 1.05rem;
+  line-height: 1.7; color: var(--text-mid); margin-bottom: 24px;
+}
+.contact-btns { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+.contact-btn {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 20px; border-radius: 2px; text-decoration: none;
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.78rem;
+  letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;
+  transition: all 0.25s;
+}
+.whatsapp-btn { background: #25D366; color: #fff; }
+.whatsapp-btn:hover { background: #1DAA54; transform: translateX(4px); }
+.call-btn { background: var(--deep-red); color: #fff; }
+.call-btn:hover { background: var(--brick); transform: translateX(4px); }
+.delivery-info {
+  background: rgba(139,26,26,0.05);
+  border: 1px solid rgba(139,26,26,0.15);
+  border-radius: 4px; padding: 20px;
+}
+.delivery-info h4 {
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.7rem;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--deep-red);
+  margin-bottom: 12px;
+}
+.delivery-info ul {
+  list-style: none;
+}
+.delivery-info li {
+  font-family: 'Crimson Pro', serif; font-size: 0.95rem; color: var(--text-mid);
+  padding: 5px 0; border-bottom: 1px solid rgba(92,51,23,0.1);
+  display: flex; align-items: center; gap: 8px;
+}
+.delivery-info li:last-child { border-bottom: none; }
+.contact-form-wrap { background: #fff; padding: 36px; border-radius: 4px; box-shadow: 0 4px 20px rgba(92,51,23,0.08); }
+.contact-form-wrap h3 {
+  font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700;
+  color: var(--dark-brown); margin-bottom: 24px;
+}
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-group label {
+  display: block; font-family: 'Josefin Sans', sans-serif; font-size: 0.65rem;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--text-mid);
+  margin-bottom: 6px; font-weight: 600;
+}
+@media(max-width:768px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .cf-row { grid-template-columns: 1fr; }
+}
+
+/* ── FOOTER ── */
+#footer {
+  background: var(--dark-brown);
+  border-top: 1px solid rgba(212,160,23,0.15);
+  padding: 50px 5% 24px;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px; margin-bottom: 40px;
+}
+.footer-brand-logo {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
+}
+.footer-brand-logo img {
+  width: 48px; height: 48px; border-radius: 50%;
+  border: 2px solid rgba(212,160,23,0.4); object-fit: cover;
+}
+.footer-brand-name {
+  font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900;
+  color: var(--saffron); letter-spacing: 3px;
+}
+.footer-tagline {
+  font-family: 'Crimson Pro', serif; font-size: 1rem;
+  color: rgba(245,236,215,0.55); line-height: 1.7; margin-bottom: 20px;
+}
+.social-icons { display: flex; gap: 12px; }
+.social-icon {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid rgba(212,160,23,0.25);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(245,236,215,0.6); font-size: 0.9rem; text-decoration: none;
+  transition: all 0.2s;
+}
+.social-icon:hover { border-color: var(--saffron); color: var(--saffron); background: rgba(212,160,23,0.08); }
+.footer-col h4 {
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.7rem;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--saffron);
+  margin-bottom: 16px; font-weight: 600;
+}
+.footer-col ul { list-style: none; }
+.footer-col li {
+  margin-bottom: 10px;
+}
+.footer-col a {
+  color: rgba(245,236,215,0.55); text-decoration: none;
+  font-family: 'Crimson Pro', serif; font-size: 0.95rem;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--saffron); }
+.footer-bottom {
+  border-top: 1px solid rgba(212,160,23,0.1);
+  padding-top: 20px; text-align: center;
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.65rem;
+  letter-spacing: 2px; color: rgba(245,236,215,0.35); text-transform: uppercase;
+}
+@media(max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width:480px) { .footer-grid { grid-template-columns: 1fr; } }
+
+/* ── CART DRAWER ── */
+.cart-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+  z-index: 2000; opacity: 0; pointer-events: none; transition: opacity 0.3s;
+  backdrop-filter: blur(4px);
+}
+.cart-overlay.open { opacity: 1; pointer-events: all; }
+.cart-drawer {
+  position: fixed; top: 0; right: -420px; width: 420px; max-width: 100vw;
+  height: 100vh; background: var(--cream); z-index: 2001;
+  transition: right 0.4s cubic-bezier(.16,1,.3,1);
+  display: flex; flex-direction: column;
+  box-shadow: -20px 0 60px rgba(0,0,0,0.3);
+}
+.cart-drawer.open { right: 0; }
+.cart-header {
+  padding: 24px; border-bottom: 1px solid var(--beige);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.cart-header h2 {
+  font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--dark-brown);
+}
+.cart-close {
+  background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-mid);
+  width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+}
+.cart-items { flex: 1; overflow-y: auto; padding: 20px; }
+.cart-empty {
+  text-align: center; padding: 60px 20px;
+  font-family: 'Crimson Pro', serif; font-size: 1.1rem; color: var(--text-mid);
+}
+.cart-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 0; border-bottom: 1px solid var(--beige);
+}
+.cart-item-icon { font-size: 2rem; flex-shrink: 0; }
+.cart-item-info { flex: 1; }
+.cart-item-name {
+  font-family: 'Playfair Display', serif; font-weight: 700; font-size: 0.95rem; color: var(--dark-brown);
+}
+.cart-item-sub {
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.65rem; letter-spacing: 1px; color: var(--text-mid);
+}
+.cart-item-price {
+  font-family: 'Josefin Sans', sans-serif; font-weight: 700; color: var(--deep-red);
+}
+.cart-remove {
+  background: none; border: none; color: #ccc; cursor: pointer; font-size: 0.9rem; transition: color 0.2s;
+}
+.cart-remove:hover { color: var(--deep-red); }
+.cart-footer { padding: 20px; border-top: 1px solid var(--beige); }
+.cart-total {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 16px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.2rem; color: var(--dark-brown);
+}
+.checkout-btn {
+  width: 100%; background: var(--deep-red); color: #fff; border: none;
+  padding: 16px; border-radius: 2px; font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+  cursor: pointer; transition: background 0.2s;
+}
+.checkout-btn:hover { background: var(--brick); }
+
+/* ── RECIPE MODAL ── */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.75);
+  z-index: 3000; opacity: 0; pointer-events: none; transition: opacity 0.3s;
+  backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal-box {
+  background: var(--cream); border-radius: 6px; max-width: 700px; width: 100%;
+  max-height: 90vh; overflow-y: auto;
+  transform: scale(0.9); transition: transform 0.3s;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+.modal-overlay.open .modal-box { transform: scale(1); }
+.modal-img { width: 100%; height: 280px; object-fit: cover; }
+.modal-content { padding: 32px; }
+.modal-tag {
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.65rem;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--deep-red); margin-bottom: 8px;
+}
+.modal-title {
+  font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900;
+  color: var(--dark-brown); margin-bottom: 12px;
+}
+.modal-desc {
+  font-family: 'Crimson Pro', serif; font-size: 1.05rem; line-height: 1.7;
+  color: var(--text-mid); margin-bottom: 20px;
+}
+.modal-ingredients {
+  background: var(--beige); padding: 20px; border-radius: 4px; margin-bottom: 20px;
+}
+.modal-ingredients h4 {
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.7rem; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--deep-red); margin-bottom: 12px;
+}
+.modal-ingredients ul { list-style: none; }
+.modal-ingredients li {
+  font-family: 'Crimson Pro', serif; font-size: 0.95rem; color: var(--text-mid);
+  padding: 4px 0; display: flex; align-items: center; gap: 8px;
+}
+.modal-steps h4 {
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.7rem; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--deep-red); margin-bottom: 14px;
+}
+.modal-step {
+  display: flex; gap: 14px; margin-bottom: 16px;
+}
+.step-num {
+  width: 28px; height: 28px; background: var(--deep-red); color: #fff;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 0.75rem;
+  flex-shrink: 0;
+}
+.step-text {
+  font-family: 'Crimson Pro', serif; font-size: 0.98rem; line-height: 1.6; color: var(--text-mid);
+  padding-top: 3px;
+}
+.modal-close-btn {
+  position: sticky; top: 0; float: right;
+  background: var(--dark-brown); color: #fff; border: none;
+  width: 36px; height: 36px; border-radius: 50%; cursor: pointer;
+  font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
+  margin: 12px 12px 0 0; z-index: 10;
+}
+
+/* ── TOAST ── */
+.toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px);
+  background: var(--dark-brown); color: var(--beige);
+  padding: 14px 28px; border-radius: 2px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 0.75rem; letter-spacing: 1.5px;
+  z-index: 5000; transition: transform 0.4s cubic-bezier(.16,1,.3,1);
+  border-left: 3px solid var(--turmeric);
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.product-img {
+  height: 220px !important;
+  overflow: hidden !important;
+  position: relative;
+  border-radius: 4px 4px 0 0;
+}
+.prod-photo {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+  transition: transform 0.5s ease !important;
+}
+.product-card:hover .prod-photo {
+  transform: scale(1.07) !important;
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <img src="naad-logo.png" alt="NAAD Logo">
+    <div class="nav-logo-text">NAAD<span>Masala</span></div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#products">Shop</a></li>
+    <li><a href="#recipes">Recipes</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div style="display:flex;gap:12px;align-items:center;">
+    <button class="nav-cart" onclick="openCart()">
+      🛒 Cart
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+    <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-pattern"></div>
+  <!-- Floating spice particles -->
+  <div class="spice-particle" style="width:8px;height:8px;background:#E8A020;top:15%;left:10%;animation-delay:0s;animation-duration:7s;opacity:0.5;"></div>
+  <div class="spice-particle" style="width:5px;height:5px;background:#C0392B;top:25%;left:25%;animation-delay:1s;animation-duration:9s;opacity:0.4;"></div>
+  <div class="spice-particle" style="width:10px;height:10px;background:#F4A942;top:60%;left:8%;animation-delay:2s;animation-duration:8s;opacity:0.35;"></div>
+  <div class="spice-particle" style="width:6px;height:6px;background:#D4A017;top:75%;left:20%;animation-delay:0.5s;animation-duration:6s;opacity:0.5;"></div>
+  <div class="spice-particle" style="width:9px;height:9px;background:#E8A020;top:20%;right:12%;animation-delay:1.5s;animation-duration:10s;opacity:0.4;"></div>
+  <div class="spice-particle" style="width:4px;height:4px;background:#C0392B;top:50%;right:8%;animation-delay:3s;animation-duration:7.5s;opacity:0.5;"></div>
+  <div class="spice-particle" style="width:7px;height:7px;background:#F4A942;top:70%;right:22%;animation-delay:0.8s;animation-duration:9.5s;opacity:0.35;"></div>
+  <div class="spice-particle" style="width:11px;height:11px;background:#D4A017;top:40%;left:50%;animation-delay:2.5s;animation-duration:8.5s;opacity:0.25;"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">Mumbai, Maharashtra · Est. 2026</div>
+    <img src="naad-logo.png" alt="NAAD Masala" class="hero-logo-img">
+    <h1 class="hero-tagline">Preserving<br><em>Authentic Flavours</em></h1>
+    <p class="hero-sub">From Daadi & Naani's kitchen to your home</p>
+    <p class="hero-experience">100+ Years of Cooking Experience Together</p>
+    <div class="hero-btns">
+      <a href="#products" class="btn-primary">Shop Now</a>
+      <a href="#about" class="btn-outline">Our Story</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">4</div>
+        <div class="hero-stat-label">Masalas</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">0%</div>
+        <div class="hero-stat-label">Preservatives</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">100%</div>
+        <div class="hero-stat-label">Homemade</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">100+</div>
+        <div class="hero-stat-label">Years of Recipes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="about-grid">
+    
+    <div class="about-text reveal">
+      <p class="section-eyebrow">Our Story</p>
+      <h2>From <em>Daadi & Naani's</em><br>Kitchen to Your Home</h2>
+      <p>NAAD was born from the warmth of two grandmothers' kitchens — where every pinch of spice carried a memory, every blend told a story. The name "NAAD" means sound — the sound of a mortar and pestle, the sizzle of spices hitting hot oil, the hum of a kitchen alive with love.</p>
+      <p>Together, Daadi and Naani bring over 100 years of combined cooking wisdom. Every masala is hand-ground the traditional way, using only whole spices sourced from trusted farms — no shortcuts, no fillers, no compromises.</p>
+      <p>When you open a jar of NAAD, you're not just adding flavour. You're reviving a ritual passed down through generations.</p>
+      <div class="about-pills">
+        <span class="pill">🌶️ 100% Homemade</span>
+        <span class="pill">🚫 No Preservatives</span>
+        <span class="pill">🌿 No Palm Oil</span>
+        <span class="pill">✨ Whole Spices Only</span>
+        <span class="pill">❤️ Made with Love</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="why" class="section">
+  <div class="section-header">
+    <p class="section-eyebrow">Why NAAD</p>
+    <h2 class="section-title">The <em>NAAD</em> Difference</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <span class="why-icon">🏡</span>
+      <div class="why-title">100% Homemade</div>
+      <div class="why-desc">Every batch is crafted by hand in our home kitchen with care and love — never factory-made.</div>
+    </div>
+    <div class="why-card reveal">
+      <span class="why-icon">🚫</span>
+      <div class="why-title">No Preservatives</div>
+      <div class="why-desc">Pure spice, nothing else. No chemicals, no artificial additives — just honest ingredients.</div>
+    </div>
+    <div class="why-card reveal">
+      <span class="why-icon">🌿</span>
+      <div class="why-title">Premium Whole Spices</div>
+      <div class="why-desc">We source the finest whole spices from trusted farms and grind them fresh for every batch.</div>
+    </div>
+    <div class="why-card reveal">
+      <span class="why-icon">📜</span>
+      <div class="why-title">Traditional Recipes</div>
+      <div class="why-desc">Recipes preserved through generations — blends that have stood the test of 100+ years.</div>
+    </div>
+    <div class="why-card reveal">
+      <span class="why-icon">🥄</span>
+      <div class="why-title">Authentic Taste</div>
+      <div class="why-desc">The real zhanzhanit, aromatic, earthy taste you grew up with — no substitutes, no shortcuts.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" class="section">
+  <div class="section-header">
+    <p class="section-eyebrow">Our Masalas</p>
+    <h2 class="section-title">Crafted with <em>Love</em></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="section">
+  <div class="section-header">
+    <p class="section-eyebrow">Testimonials</p>
+    <h2 class="section-title">What Our <em>Customers Say</em></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="reviews-carousel">
+    <div class="reviews-track" id="reviewsTrack"></div>
+    <div class="carousel-nav" id="carouselNav"></div>
+  </div>
+  <!-- Review Form -->
+  <div class="review-form-wrap reveal">
+    <h3>Share Your Experience</h3>
+    <div class="star-input" id="starInput">
+      <span data-val="1">★</span><span data-val="2">★</span>
+      <span data-val="3">★</span><span data-val="4">★</span><span data-val="5">★</span>
+    </div>
+    <div class="form-group"><input type="text" placeholder="Your Name *" id="rvName"></div>
+    <div class="form-group"><input type="tel" placeholder="Mobile Number (optional)" id="rvMobile"></div>
+    <div class="form-group"><textarea placeholder="Your review... *" id="rvText"></textarea></div>
+    <button class="btn-primary" style="width:100%;padding:14px;" onclick="submitReview()">Submit Review</button>
+    <div id="rvSuccess" style="display:none;text-align:center;padding:16px;font-family:'Crimson Pro',serif;font-size:1.05rem;color:#2D7D4A;margin-top:12px;">🙏 Thank you! Your review has been submitted.</div>
+  </div>
+  <!-- Hidden iframe for Google Form submission -->
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+</section>
+
+<!-- RECIPES -->
+<section id="recipes" class="section">
+  <div class="section-header">
+    <p class="section-eyebrow">Recipe Ideas</p>
+    <h2 class="section-title">Cook with <em>NAAD</em></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="recipes-grid" id="recipesGrid"></div>
+</section>
+
+<!-- INSTAGRAM -->
+<section id="instagram" class="section">
+  <div class="section-header">
+    <p class="section-eyebrow">Follow Along</p>
+    <h2 class="section-title">From Our <em>Kitchen</em></h2>
+    <div class="section-divider" style="background:var(--deep-red);"></div>
+  </div>
+  <div class="insta-grid">
+    <div class="insta-cell"><div class="insta-cell-bg" style="background:linear-gradient(135deg,#E8A020,#C0392B);">🌶️</div><div class="insta-overlay">❤️</div></div>
+    <div class="insta-cell"><div class="insta-cell-bg" style="background:linear-gradient(135deg,#8B1A1A,#5C3317);">🍛</div><div class="insta-overlay">❤️</div></div>
+    <div class="insta-cell"><div class="insta-cell-bg" style="background:linear-gradient(135deg,#D4A017,#E8A020);">✨</div><div class="insta-overlay">❤️</div></div>
+    <div class="insta-cell"><div class="insta-cell-bg" style="background:linear-gradient(135deg,#5C3317,#8B1A1A);">🫙</div><div class="insta-overlay">❤️</div></div>
+    <div class="insta-cell"><div class="insta-cell-bg" style="background:linear-gradient(135deg,#C0392B,#D4A017);">🌿</div><div class="insta-overlay">❤️</div></div>
+    <div class="insta-cell"><div class="insta-cell-bg" style="background:linear-gradient(135deg,#E8A020,#5C3317);">🍲</div><div class="insta-overlay">❤️</div></div>
+  </div>
+  <p class="insta-handle">Follow us on Instagram: <a href="https://www.instagram.com/naad.masala?igsh=MTZ4bHE2dmlkeDlhcA==" target="_blank">@naad.masala</a></p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="section-header">
+    <p class="section-eyebrow">Get in Touch</p>
+    <h2 class="section-title">Order & <em>Enquiries</em></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <h3>Let's Connect</h3>
+      <p>Ready to bring authentic Daadi-Naani flavours to your kitchen? Reach out via WhatsApp for the fastest response — we personally handle every order.</p>
+      <div class="contact-btns">
+        <a href="https://wa.me/919372855610?text=Hi%20NAAD!%20I%20want%20to%20order%20masala." class="contact-btn whatsapp-btn" target="_blank">
+          💬 WhatsApp Us
+        </a>
+        <a href="tel:+919372855610" class="contact-btn call-btn">
+          📞 Call: 93728 55610
+        </a>
+        <a href="mailto:naadmasalas@gmail.com" class="contact-btn" style="background:var(--brown);color:#fff;">
+          ✉️ naadmasalas@gmail.com
+        </a>
+      </div>
+      <div class="delivery-info">
+        <h4>Delivery Information</h4>
+        <ul>
+          <li>🚚 Free delivery within Mumbai for orders of 1kg & above</li>
+          <li>📦 Pan-India shipping available</li>
+          <li>⚡ Orders dispatched within 2–3 business days</li>
+          <li>🌡️ Shelf life: 1 year for all products</li>
+          <li>💳 UPI, Bank Transfer & COD available</li>
+        </ul>
+      </div>
+    </div>
+    <div class="contact-form-wrap reveal">
+      <h3>Send a Message</h3>
+      <div class="cf-row">
+        <div class="form-group"><label>Name</label><input type="text" placeholder="Your full name" id="cfName"></div>
+        <div class="form-group"><label>Phone</label><input type="tel" placeholder="+91 XXXXX XXXXX" id="cfPhone"></div>
+      </div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" id="cfEmail"></div>
+      <div class="form-group">
+        <label>I'm interested in</label>
+        <select style="width:100%;padding:12px 14px;border:1.5px solid var(--beige);border-radius:2px;font-family:'Crimson Pro',serif;font-size:1rem;background:var(--cream);color:var(--text-dark);">
+          <option>Kolhapuri Masala</option>
+          <option>Indian Garam Masala</option>
+          <option>Goda Masala</option>
+          <option>Agri Koli Masala</option>
+          <option>Full Combo Pack</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Message</label><textarea placeholder="Your order details or questions..." id="cfMsg"></textarea></div>
+      <button class="btn-primary" style="width:100%;padding:14px;" onclick="submitContact()">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-logo">
+        <img src="naad-logo.png" alt="NAAD">
+        <span class="footer-brand-name">NAAD</span>
+      </div>
+      <p class="footer-tagline">Preserving the authentic flavours of Daadi & Naani's kitchen — 100% homemade, no preservatives, made with 100+ years of love.</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/naad.masala?igsh=MTZ4bHE2dmlkeDlhcA==" target="_blank" class="social-icon">📸</a>
+        <a href="https://wa.me/919372855610" target="_blank" class="social-icon">💬</a>
+        <a href="tel:+919372855610" class="social-icon">📞</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#products">Shop Masalas</a></li>
+        <li><a href="#recipes">Recipe Ideas</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <ul>
+        <li><a href="#products">Kolhapuri Masala</a></li>
+        <li><a href="#products">Garam Masala</a></li>
+        <li><a href="#products">Goda Masala</a></li>
+        <li><a href="#products">Agri Koli Masala</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+919372855610">93728 55610</a></li>
+        <li><a href="mailto:naadmasalas@gmail.com">naadmasalas@gmail.com</a></li>
+        <li><a href="https://www.instagram.com/naad.masala?igsh=MTZ4bHE2dmlkeDlhcA==">@naad.masala</a></li>
+        <li><a href="#contact">Mumbai, Maharashtra</a></li>
+        <li><a href="#contact">Est. 2026</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 NAAD Masala · Mumbai, Maharashtra · All Rights Reserved · Made with ❤️
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h2>Your Cart 🛒</h2>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div style="background:rgba(232,160,32,0.12);border-bottom:1px solid rgba(232,160,32,0.3);padding:10px 20px;display:flex;align-items:center;gap:8px;">
+    <span style="font-size:1rem;">🚚</span>
+    <span style="font-family:'Josefin Sans',sans-serif;font-size:0.68rem;letter-spacing:1px;color:#5C3317;font-weight:700;">FREE DELIVERY on orders of 1kg & above</span>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">Your cart is empty.<br>Add some masalas!</div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-total">
+      <span>Total</span>
+      <span id="cartTotal">₹0</span>
+    </div>
+    <button class="checkout-btn" onclick="checkout()">Proceed to Order via WhatsApp</button>
+  </div>
+</div>
+
+<!-- RECIPE MODAL -->
+<div class="modal-overlay" id="recipeModal">
+  <div class="modal-box" id="recipeModalBox">
+    <button class="modal-close-btn" onclick="closeRecipeModal()">✕</button>
+    <img id="modalImg" src="" alt="" class="modal-img">
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+const LOGO = "naad-logo.png"
+
+// ── Products Data ──
+const PRODUCT_IMGS = {
+  1: "product-1.png",
+  2: "product-2.png",
+  3: "product-3.png",
+  4: "product-4.png"
+};
+const PRODUCTS = [
+  {
+    id: 1,
+    name: "Kolhapuri Masala",
+    emoji: "🌶️",
+    color: "linear-gradient(135deg,#8B1A1A,#C0392B)",
+    desc: "The bold, fiery pride of Kolhapur. Zhanzhanit — a tingling heat that wakes up every taste bud.",
+    usage: "Perfect for: Kolhapuri Chicken, Mutton, Paneer",
+    badge: "Bestseller",
+    prices: [
+      { label: "250g", price: 350 }, { label: "500g", price: 650 }, { label: "1kg", price: 1250 }
+    ]
+  },
+  {
+    id: 2,
+    name: "Garam Masala",
+    emoji: "✨",
+    color: "linear-gradient(135deg,#5C3317,#D4A017)",
+    desc: "Rich, deep, and warmly aromatic. The soul of Indian cooking — adds depth to any dish.",
+    usage: "Perfect for: Curries, Biryanis, Dals, Kebabs",
+    badge: "Classic",
+    prices: [
+      { label: "100g", price: 160 }, { label: "250g", price: 375 }, { label: "500g", price: 750 }, { label: "1kg", price: 1475 }
+    ]
+  },
+  {
+    id: 3,
+    name: "Goda Masala",
+    emoji: "🌿",
+    color: "linear-gradient(135deg,#2D5A27,#5C8A3A)",
+    desc: "Mild, earthy and distinctly Maharashtrian. The gentle fragrance that defines home-cooked Maharashtrian food.",
+    usage: "Perfect for: Amti, Vangi Bhaat, Bharli Vangi",
+    badge: "Maharashtra's Own",
+    prices: [
+      { label: "250g", price: 375 }, { label: "500g", price: 700 }, { label: "1kg", price: 1350 }
+    ]
+  },
+  {
+    id: 4,
+    name: "Agri Koli Masala",
+    emoji: "🐟",
+    color: "linear-gradient(135deg,#2D7D8A,#1A5560)",
+    desc: "Coastal spice magic — bold, warming and deeply aromatic. Born from the kitchens of the Agri-Koli community.",
+    usage: "Perfect for: Fish Curry, Crab Masala, Prawn dishes",
+    badge: "Coastal Special",
+    prices: [
+      { label: "250g", price: 350 }, { label: "500g", price: 650 }, { label: "1kg", price: 1250 }
+    ]
+  }
+];
+
+// ── Product State ──
+let selectedPrices = {}; let quantities = {};
+let cart = [];
+
+function renderProducts() {
+  const grid = document.getElementById("productsGrid");
+  grid.innerHTML = PRODUCTS.map(p => {
+    selectedPrices[p.id] = 0; quantities[p.id] = 0;
+    const pricesBtns = p.prices.map((pr, i) =>
+      `<button class="price-btn ${i===0?'active':''}" onclick="selectPrice(${p.id},${i},this)">${pr.label} – ₹${pr.price}</button>`
+    ).join('');
+    return `<div class="product-card reveal">
+      <div class="product-img">
+        <img src="${PRODUCT_IMGS[p.id]}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 0.4s;" class="prod-photo">
+        <span class="product-badge">${p.badge}</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">${p.name}</div>
+        <div class="product-desc">${p.desc}</div>
+        <div class="product-usage">🍳 ${p.usage}</div>
+        <div class="price-options" id="prices-${p.id}">${pricesBtns}</div>
+        <div class="product-footer">
+          <div class="qty-selector">
+            <button class="qty-btn" onclick="changeQty(${p.id},-1)">−</button>
+            <span class="qty-num" id="qty-${p.id}">0</span>
+            <button class="qty-btn" onclick="changeQty(${p.id},1)">+</button>
+          </div>
+          <button class="add-cart-btn" id="atc-${p.id}" onclick="addToCart(${p.id})">Add to Cart</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  initReveal();
+}
+
+function selectPrice(pid, idx, el) {
+  selectedPrices[pid] = idx;
+  document.querySelectorAll(`#prices-${pid} .price-btn`).forEach((b,i) => b.classList.toggle('active', i===idx));
+}
+function changeQty(pid, delta) {
+  quantities[pid] = Math.max(0, (quantities[pid]||0) + delta);
+  document.getElementById(`qty-${pid}`).textContent = quantities[pid];
+}
+function addToCart(pid) {
+  const p = PRODUCTS.find(x=>x.id===pid);
+  const pr = p.prices[selectedPrices[pid]||0];
+  const qty = quantities[pid]||0;
+  if(qty < 1) { showToast('Please select a quantity first using the + button.'); return; }
+  const existing = cart.find(i=>i.id===pid && i.size===pr.label);
+  if(existing) existing.qty += qty;
+  else cart.push({id:pid,name:p.name,emoji:p.emoji,size:pr.label,price:pr.price,qty});
+  updateCartUI();
+  const btn = document.getElementById(`atc-${pid}`);
+  btn.textContent = "✓ Added!"; btn.classList.add('added');
+  setTimeout(()=>{ btn.textContent="Add to Cart"; btn.classList.remove('added'); }, 2000);
+  showToast(`${p.emoji} ${p.name} (${pr.label}) added to cart!`);
+}
+function updateCartUI() {
+  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const count = cart.reduce((s,i)=>s+i.qty,0);
+  document.getElementById('cartCount').textContent = count;
+  const itemsEl = document.getElementById('cartItems');
+  const footerEl = document.getElementById('cartFooter');
+  if(!cart.length) {
+    itemsEl.innerHTML = '<div class="cart-empty">Your cart is empty.<br>Add some masalas!</div>';
+    footerEl.style.display='none'; return;
+  }
+  itemsEl.innerHTML = cart.map((item,i)=>`
+    <div class="cart-item">
+      <div class="cart-item-icon">${item.emoji}</div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-sub">${item.size} × ${item.qty}</div>
+      </div>
+      <div class="cart-item-price">₹${item.price*item.qty}</div>
+      <button class="cart-remove" onclick="removeCartItem(${i})">✕</button>
+    </div>`).join('');
+  document.getElementById('cartTotal').textContent = `₹${total}`;
+  footerEl.style.display='block';
+}
+function removeCartItem(i) { cart.splice(i,1); updateCartUI(); }
+function openCart() { document.getElementById('cartOverlay').classList.add('open'); document.getElementById('cartDrawer').classList.add('open'); }
+function closeCart() { document.getElementById('cartOverlay').classList.remove('open'); document.getElementById('cartDrawer').classList.remove('open'); }
+function checkout() {
+  if(!cart.length) return;
+  const items = cart.map(i=>`${i.name} ${i.size} x${i.qty} = ₹${i.price*i.qty}`).join('%0A');
+  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const msg = `Hi NAAD! I want to place an order:%0A%0A${items}%0A%0ATotal: ₹${total}%0A%0ANote: Free delivery for 1kg & above orders only.%0APlease confirm availability.`;
+  window.open(`https://wa.me/919372855610?text=${msg}`, '_blank');
+}
+
+// ── Reviews — Live from Google Sheets ──
+// STEP REQUIRED: Replace SHEET_ID below with your actual Google Sheet ID
+// (It's the long string in your Sheet URL between /d/ and /edit)
+const SHEET_ID = "YOUR_GOOGLE_SHEET_ID_HERE";
+const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=Sheet1`;
+
+// Fallback static reviews shown while live data loads or if fetch fails
+const STATIC_REVIEWS = [
+  {stars:5, text:"The Kolhapuri Masala is absolutely outstanding! I've been searching for this exact zhanzhanit flavour for years. Reminds me exactly of my grandmother's cooking in Kolhapur. NAAD is a gem!", name:"Priya Deshmukh", avatar:"👩"},
+  {stars:5, text:"Goda Masala is the real deal — earthy, fragrant, perfectly balanced. Made Bharli Vangi with it and my whole family was speechless. This is the authentic Maharashtrian taste I grew up with.", name:"Suresh Patil", avatar:"👨"},
+  {stars:5, text:"I gifted the Garam Masala combo to my mother in Delhi and she called me crying — said it smells exactly like her own mother's kitchen. NAAD doesn't just sell masala, they sell memories.", name:"Ananya Iyer", avatar:"👩‍🦱"},
+  {stars:5, text:"The Agri Koli Masala made my fish curry taste like it was cooked in a coastal village. Bold, aromatic, absolutely perfect. Been ordering every month now!", name:"Rohan Koli", avatar:"🧔"},
+  {stars:5, text:"No preservatives, no palm oil, and it still tastes incredible. That's the NAAD promise and they deliver on it every single time. Super fast WhatsApp service too!", name:"Meena Sharma", avatar:"👩‍🦳"},
+  {stars:5, text:"What I love most is you can taste the quality of whole spices. The Kolhapuri is not just spicy — it's complex and layered. Worth every rupee and more.", name:"Vikram Chavan", avatar:"👴"}
+];
+
+let REVIEWS = [...STATIC_REVIEWS];
+let currentSlide = 0;
+let autoSlideTimer = null;
+
+// Avatars cycle for customer reviews
+const AVATARS = ["😊","👩","👨","🧔","👩‍🦱","👩‍🦳","👴","🧑","👱","🙋"];
+
+async function fetchLiveReviews() {
+  if(SHEET_ID === "YOUR_GOOGLE_SHEET_ID_HERE") return; // not yet configured
+  try {
+    const res = await fetch(SHEET_URL);
+    const text = await res.text();
+    // Google Sheets wraps JSON in /*O_o*/\ngoogle.visualization.Query.setResponse(...)
+    const json = JSON.parse(text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*?)\);?\s*$/)[1]);
+    const rows = json.table.rows;
+    if(!rows || rows.length === 0) return;
+    // Sheet columns: Timestamp(0), Name(1), Mobile(2), Rating(3), Review(4)
+    const live = rows.map((r, i) => ({
+      name:   (r.c[1] && r.c[1].v) ? String(r.c[1].v).trim() : "Customer",
+      stars:  (r.c[3] && r.c[3].v) ? Math.round(Number(r.c[3].v)) : 5,
+      text:   (r.c[4] && r.c[4].v) ? String(r.c[4].v).trim() : "",
+      avatar: AVATARS[i % AVATARS.length]
+    })).filter(r => r.text.length > 0).reverse(); // newest first
+    if(live.length > 0) {
+      REVIEWS = [...live, ...STATIC_REVIEWS];
+      renderReviews();
+    }
+  } catch(e) {
+    // Silently fall back to static reviews — already displayed
+  }
+}
+
+function renderReviews() {
+  if(autoSlideTimer) clearInterval(autoSlideTimer);
+  currentSlide = 0;
+  const nav = document.getElementById('carouselNav');
+  const perPage = window.innerWidth < 560 ? 1 : window.innerWidth < 900 ? 2 : 3;
+  const totalSlides = Math.ceil(REVIEWS.length / perPage);
+  nav.innerHTML = Array.from({length:totalSlides},(_,i)=>
+    `<button class="carousel-dot ${i===0?'active':''}" onclick="goSlide(${i})"></button>`).join('');
+  renderReviewPage(0, perPage);
+  autoSlideTimer = setInterval(()=>{ goSlide(currentSlide + 1); }, 5500);
+}
+function goSlide(i) {
+  const perPage = window.innerWidth < 560 ? 1 : window.innerWidth < 900 ? 2 : 3;
+  const totalPages = Math.ceil(REVIEWS.length / perPage);
+  currentSlide = ((i % totalPages) + totalPages) % totalPages;
+  renderReviewPage(currentSlide, perPage);
+  document.querySelectorAll('.carousel-dot').forEach((d,j)=>d.classList.toggle('active',j===currentSlide));
+}
+function renderReviewPage(page, perPage) {
+  const track = document.getElementById('reviewsTrack');
+  const start = page * perPage;
+  const slice = REVIEWS.slice(start, start + perPage);
+  track.innerHTML = slice.map(r=>`
+    <div class="review-card">
+      <div class="review-stars">${'★'.repeat(Math.max(1,Math.min(5,r.stars||5)))}${'☆'.repeat(5-Math.max(1,Math.min(5,r.stars||5)))}</div>
+      <div class="review-text">${r.text}</div>
+      <div class="reviewer">
+        <div class="reviewer-avatar">${r.avatar||'😊'}</div>
+        <div>
+          <div class="reviewer-name">${r.name}</div>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+// Star rating input
+let selectedStars = 0;
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('#starInput span').forEach(s=>{
+    s.addEventListener('click',()=>{
+      selectedStars = +s.dataset.val;
+      document.querySelectorAll('#starInput span').forEach((x,i)=>x.classList.toggle('lit',i<selectedStars));
+    });
+  });
+});
+
+// Google Form config — entry IDs for NAAD Masala form
+// NOTE: Replace placeholder entry IDs with real ones from your Google Form (see setup guide)
+const GF_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLScN_OC8PU_knyFski1-eBmUM8IzPF6WNe3pNBfpEW02DaMfDg/formResponse";
+const GF_NAME   = "entry.934988293";
+const GF_MOBILE = "entry.813070087";
+const GF_REVIEW = "entry.180935418";
+const GF_RATING = "entry.1906006657";
+
+function submitReview() {
+  const name = document.getElementById('rvName').value.trim();
+  const text = document.getElementById('rvText').value.trim();
+  const mobile = document.getElementById('rvMobile').value.trim();
+  if(!name||!text||!selectedStars) { showToast('Please fill in your name, review, and select a star rating.'); return; }
+
+  // Submit silently to Google Form → Google Sheet via hidden iframe
+  try {
+    const gfForm = document.createElement('form');
+    gfForm.method = 'POST';
+    gfForm.action = GF_ACTION;
+    gfForm.target = 'hidden_iframe';
+    [[GF_NAME,name],[GF_MOBILE,mobile],[GF_REVIEW,text],[GF_RATING,String(selectedStars)]]
+      .forEach(([n,v])=>{ const inp=document.createElement('input'); inp.type='hidden'; inp.name=n; inp.value=v; gfForm.appendChild(inp); });
+    document.body.appendChild(gfForm);
+    gfForm.submit();
+    document.body.removeChild(gfForm);
+  } catch(e) { /* fail silently */ }
+
+  // Show new review immediately at the top (optimistic update)
+  REVIEWS.unshift({stars:selectedStars, text, name, avatar:'😊'});
+  renderReviews();
+
+  // Clear form
+  document.getElementById('rvName').value='';
+  document.getElementById('rvMobile').value='';
+  document.getElementById('rvText').value='';
+  selectedStars=0;
+  document.querySelectorAll('#starInput span').forEach(s=>s.classList.remove('lit'));
+  document.getElementById('rvSuccess').style.display='block';
+  setTimeout(()=>{ document.getElementById('rvSuccess').style.display='none'; }, 5000);
+}
+
+// ── Recipes ──
+const RECIPES = [
+  {
+    name:"Kolhapuri Chicken",
+    masala:"Kolhapuri Masala",
+    brief:"Fiery, bold curry bursting with the authentic zhanzhanit heat of Kolhapur.",
+    imgUrl:"https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=600&q=80",
+    desc:"A legendary Maharashtrian delicacy known for its fiery red colour and bold, complex heat. The combination of freshly ground Kolhapuri Masala with coconut and onion creates an unforgettable curry.",
+    ingredients:["500g chicken pieces","3 tbsp NAAD Kolhapuri Masala","2 onions, finely chopped","1 tomato, chopped","Fresh coconut, grated (2 tbsp)","Ginger-garlic paste","Oil, salt to taste","Fresh coriander"],
+    steps:["Heat oil, sauté onions until golden brown.","Add ginger-garlic paste, cook 2 minutes.","Add NAAD Kolhapuri Masala and cook on low flame for 3 minutes.","Add chicken, coat well with masala.","Add tomatoes and a cup of water. Cover and cook 25 minutes.","Garnish with coconut and coriander. Serve with bhakri."]
+  },
+  {
+    name:"Bharli Vangi",
+    masala:"Goda Masala",
+    brief:"Stuffed baby brinjals in a fragrant Maharashtrian masala gravy.",
+    imgUrl:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&q=80",
+    desc:"A crown jewel of Maharashtrian cuisine — tender baby brinjals stuffed with a spiced coconut-peanut filling and slow-cooked in a rich Goda Masala gravy that's deeply earthy and aromatic.",
+    ingredients:["8-10 small brinjals","2 tbsp NAAD Goda Masala","Roasted peanuts, crushed (3 tbsp)","Fresh coconut, grated (4 tbsp)","1 onion, fried golden","Tamarind paste (1 tbsp)","Jaggery (1 tsp), oil, salt"],
+    steps:["Mix peanuts, coconut, fried onion, Goda Masala, tamarind, jaggery into stuffing.","Slit brinjals, stuff generously with mixture.","Heat oil, place stuffed brinjals carefully.","Add remaining stuffing + water to make gravy.","Cover and cook on low flame 20 minutes.","Serve hot with rice or jowar bhakri."]
+  },
+  {
+    name:"Misal Pav",
+    masala:"Kolhapuri Masala",
+    brief:"The iconic Maharashtrian street food — spicy moth bean curry topped with farsan.",
+    imgUrl:"https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600&q=80",
+    desc:"Misal is Maharashtra's most beloved breakfast — a spicy, tangy moth bean (matki) curry known as 'rassa', topped with crunchy farsan, raw onion, and fresh coriander. NAAD Kolhapuri Masala gives it that authentic fiery depth.",
+    ingredients:["2 cups sprouted matki (moth beans)","2 tbsp NAAD Kolhapuri Masala","2 onions, 2 tomatoes","1 tsp mustard seeds, curry leaves","Kokum or tamarind","Farsan, onion, lemon for topping","Pav (bread rolls)"],
+    steps:["Pressure cook sprouted matki 2 whistles.","Heat oil, splutter mustard, curry leaves, onions.","Add Kolhapuri Masala and tomatoes, cook until oil separates.","Add matki, water, kokum. Simmer 15 minutes.","Serve rassa in a bowl topped with farsan, raw onion, lemon. Eat with pav."]
+  },
+  {
+    name:"Fish Curry",
+    masala:"Agri Koli Masala",
+    brief:"Coastal Maharashtrian fish curry with bold, warming coconut spice base.",
+    imgUrl:"https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&q=80",
+    desc:"Born from the coastal kitchens of the Agri-Koli community, this fish curry is bold, aromatic and deeply satisfying. The Agri Koli Masala creates a rich red gravy with layers of heat and coastal fragrance.",
+    ingredients:["500g fish (surmai or pomfret)","3 tbsp NAAD Agri Koli Masala","1 cup coconut milk","2 onions, 2 tomatoes","Ginger-garlic paste","Kokum (2 pieces)","Oil, salt, fresh coriander"],
+    steps:["Marinate fish in half the masala for 20 minutes.","Heat oil, sauté onions until golden.","Add ginger-garlic, tomatoes, remaining Agri Koli Masala. Cook 5 min.","Add coconut milk and kokum. Bring to simmer.","Gently add marinated fish. Cook 12 minutes.","Garnish with coriander. Serve with steamed rice."]
+  },
+  {
+    name:"Masale Bhat",
+    masala:"Goda Masala",
+    brief:"Aromatic Maharashtrian spiced rice — a festive one-pot comfort dish.",
+    imgUrl:"https://images.unsplash.com/photo-1596797038530-2c107229654b?w=600&q=80",
+    desc:"Masale Bhat is a beloved Maharashtrian festive rice dish, fragrant with the warm earthiness of Goda Masala. Cooked with fresh vegetables, cashews and a generous tempering of ghee, this one-pot dish is comfort food at its most soul-satisfying.",
+    ingredients:["2 cups basmati rice, soaked 20 min","2 tbsp NAAD Goda Masala","1 cup mixed vegetables (potato, raw banana, drumstick)","1 medium onion, sliced","10-12 cashews","2 tbsp fresh coconut, grated","3 tbsp ghee","1 tsp mustard seeds, pinch of hing","Curry leaves, salt to taste","Fresh coriander for garnish"],
+    steps:["Heat ghee in a heavy pot. Splutter mustard seeds, add hing and curry leaves.","Add cashews and fry until golden. Add sliced onions and sauté until soft.","Add mixed vegetables and NAAD Goda Masala. Stir well and cook 3 minutes on low flame.","Add drained rice and gently mix to coat every grain with the masala.","Pour 3.5 cups water, season with salt. Bring to a boil.","Lower flame, cover and cook 15 minutes until rice is done.","Fluff gently and top with grated coconut and fresh coriander. Serve with papad and curds."]
+  },
+  {
+    name:"Chole",
+    masala:"Garam Masala",
+    brief:"Punjabi-style hearty chickpea curry, rich and deeply spiced.",
+    imgUrl:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&q=80",
+    desc:"Chole is the crown jewel of North Indian cooking — a robust, tangy chickpea curry with layers of spice and depth. NAAD Garam Masala brings its signature warmth of cloves, cinnamon and cardamom, making this a restaurant-quality dish right from your kitchen.",
+    ingredients:["2 cups kabuli chana (chickpeas), soaked overnight","2.5 tbsp NAAD Garam Masala","2 large onions, finely chopped","2 tomatoes, pureed","1 tbsp ginger-garlic paste","1 tsp cumin seeds","1 tsp amchur (dry mango powder)","1 black cardamom, 1 bay leaf","Oil, salt to taste","Fresh coriander and lemon wedges"],
+    steps:["Pressure cook soaked chickpeas with black cardamom and bay leaf for 4-5 whistles. Reserve the cooking water.","Heat oil in a kadai. Splutter cumin seeds, then fry onions until deep golden brown — this is key to a rich gravy.","Add ginger-garlic paste, cook 2 minutes. Add tomato puree and cook until oil separates.","Add NAAD Garam Masala and amchur. Stir and cook on low flame for 3 minutes.","Add boiled chickpeas along with 1.5 cups of the reserved cooking water. Mash a few chickpeas to thicken the gravy.","Simmer uncovered for 15 minutes until gravy is thick and clinging to the chickpeas.","Garnish generously with coriander. Serve hot with bhature, puri or steamed rice."]
+  },
+];
+
+function renderRecipes() {
+  const grid = document.getElementById('recipesGrid');
+  grid.innerHTML = RECIPES.map((r,i)=>`
+    <div class="recipe-card reveal">
+      <div class="recipe-img">
+        <img src="${r.imgUrl}" alt="${r.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:linear-gradient(135deg,#5C3317,#8B1A1A);display:flex;align-items:center;justify-content:center;font-size:3rem;\'>🍲</div>'">
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-masala-tag">Uses: ${r.masala}</div>
+        <div class="recipe-name">${r.name}</div>
+        <div class="recipe-brief">${r.brief}</div>
+        <button class="recipe-view-btn" onclick="openRecipe(${i})">View Full Recipe →</button>
+      </div>
+    </div>`).join('');
+  initReveal();
+}
+
+function openRecipe(i) {
+  const r = RECIPES[i];
+  document.getElementById('modalImg').src = r.imgUrl;
+  document.getElementById('modalImg').alt = r.name;
+  document.getElementById('modalContent').innerHTML = `
+    <div class="modal-tag">Uses: ${r.masala}</div>
+    <div class="modal-title">${r.name}</div>
+    <div class="modal-desc">${r.desc}</div>
+    <div class="modal-ingredients">
+      <h4>Ingredients</h4>
+      <ul>${r.ingredients.map(ing=>`<li>🔸 ${ing}</li>`).join('')}</ul>
+    </div>
+    <div class="modal-steps">
+      <h4>Method</h4>
+      ${r.steps.map((s,j)=>`<div class="modal-step"><div class="step-num">${j+1}</div><div class="step-text">${s}</div></div>`).join('')}
+    </div>`;
+  document.getElementById('recipeModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeRecipeModal() {
+  document.getElementById('recipeModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+// ── Toast ──
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 3000);
+}
+
+// ── Navbar ──
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// ── Reveal ──
+function initReveal() {
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+  }, {threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+}
+
+// ── Contact ──
+function submitContact() {
+  const name = document.getElementById('cfName').value.trim();
+  const phone = document.getElementById('cfPhone').value.trim();
+  const msg = document.getElementById('cfMsg').value.trim();
+  if(!name||!msg) { showToast('Please fill in required fields.'); return; }
+  const waMsg = `Hi NAAD! I'm ${name} (${phone}).%0A%0A${msg}`;
+  window.open(`https://wa.me/919372855610?text=${encodeURIComponent(`Hi NAAD! I'm ${name} (${phone}).
+
+${msg}`)}`, '_blank');
+  showToast('🙏 Redirecting to WhatsApp...');
+}
+
+// ── Init ──
+document.addEventListener('DOMContentLoaded',()=>{
+  renderProducts();
+  renderReviews();
+  fetchLiveReviews(); // fetch live reviews from Google Sheet
+  renderRecipes();
+  initReveal();
+  // Close modal on overlay click
+  document.getElementById('recipeModal').addEventListener('click',function(e){
+    if(e.target===this) closeRecipeModal();
+  });
+});
+</script>
+</body>
+</html>
