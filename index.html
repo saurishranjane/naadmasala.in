@@ -529,9 +529,11 @@ body {
 .recipe-card:hover .recipe-overlay { opacity: 1; }
 .recipe-img {
   height: 220px; overflow: hidden;
+}
+.recipe-img img {
+  width: 100%; height: 100%; object-fit: cover;
   transition: transform 0.4s;
 }
-.recipe-card:hover .recipe-img { transform: scale(1.04); }
 .recipe-card:hover .recipe-img img { transform: scale(1.08); }
 .recipe-body {
   background: rgba(255,255,255,0.06); padding: 18px;
@@ -789,7 +791,7 @@ body {
   box-shadow: 0 30px 80px rgba(0,0,0,0.5);
 }
 .modal-overlay.open .modal-box { transform: scale(1); }
-.modal-img { width: 100%; height: 280px; display: flex; align-items: center; justify-content: center; font-size: 4.5rem; }
+.modal-img { width: 100%; height: 280px; object-fit: cover; }
 .modal-content { padding: 32px; }
 .modal-tag {
   font-family: 'Josefin Sans', sans-serif; font-size: 0.65rem;
@@ -1200,7 +1202,7 @@ body {
 <div class="modal-overlay" id="recipeModal">
   <div class="modal-box" id="recipeModalBox">
     <button class="modal-close-btn" onclick="closeRecipeModal()">✕</button>
-    <div id="modalImg" class="modal-img"></div>
+    <img id="modalImg" src="" alt="" class="modal-img">
     <div class="modal-content" id="modalContent"></div>
   </div>
 </div>
@@ -1472,7 +1474,7 @@ const RECIPES = [
     name:"Kolhapuri Chicken",
     masala:"Kolhapuri Masala",
     brief:"Fiery, bold curry bursting with the authentic zhanzhanit heat of Kolhapur.",
-    emoji:"🌶️", color:"linear-gradient(135deg,#8B1A1A,#C0392B)",
+    imgUrl:"https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=600&q=80",
     desc:"A legendary Maharashtrian delicacy known for its fiery red colour and bold, complex heat. The combination of freshly ground Kolhapuri Masala with coconut and onion creates an unforgettable curry.",
     ingredients:["500g chicken pieces","3 tbsp NAAD Kolhapuri Masala","2 onions, finely chopped","1 tomato, chopped","Fresh coconut, grated (2 tbsp)","Ginger-garlic paste","Oil, salt to taste","Fresh coriander"],
     steps:["Heat oil, sauté onions until golden brown.","Add ginger-garlic paste, cook 2 minutes.","Add NAAD Kolhapuri Masala and cook on low flame for 3 minutes.","Add chicken, coat well with masala.","Add tomatoes and a cup of water. Cover and cook 25 minutes.","Garnish with coconut and coriander. Serve with bhakri."]
@@ -1481,7 +1483,7 @@ const RECIPES = [
     name:"Bharli Vangi",
     masala:"Goda Masala",
     brief:"Stuffed baby brinjals in a fragrant Maharashtrian masala gravy.",
-    emoji:"🌿", color:"linear-gradient(135deg,#2D5A27,#5C8A3A)",
+    imgUrl:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&q=80",
     desc:"A crown jewel of Maharashtrian cuisine — tender baby brinjals stuffed with a spiced coconut-peanut filling and slow-cooked in a rich Goda Masala gravy that's deeply earthy and aromatic.",
     ingredients:["8-10 small brinjals","2 tbsp NAAD Goda Masala","Roasted peanuts, crushed (3 tbsp)","Fresh coconut, grated (4 tbsp)","1 onion, fried golden","Tamarind paste (1 tbsp)","Jaggery (1 tsp), oil, salt"],
     steps:["Mix peanuts, coconut, fried onion, Goda Masala, tamarind, jaggery into stuffing.","Slit brinjals, stuff generously with mixture.","Heat oil, place stuffed brinjals carefully.","Add remaining stuffing + water to make gravy.","Cover and cook on low flame 20 minutes.","Serve hot with rice or jowar bhakri."]
@@ -1490,7 +1492,7 @@ const RECIPES = [
     name:"Misal Pav",
     masala:"Kolhapuri Masala",
     brief:"The iconic Maharashtrian street food — spicy moth bean curry topped with farsan.",
-    emoji:"🍛", color:"linear-gradient(135deg,#8B1A1A,#5C3317)",
+    imgUrl:"https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600&q=80",
     desc:"Misal is Maharashtra's most beloved breakfast — a spicy, tangy moth bean (matki) curry known as 'rassa', topped with crunchy farsan, raw onion, and fresh coriander. NAAD Kolhapuri Masala gives it that authentic fiery depth.",
     ingredients:["2 cups sprouted matki (moth beans)","2 tbsp NAAD Kolhapuri Masala","2 onions, 2 tomatoes","1 tsp mustard seeds, curry leaves","Kokum or tamarind","Farsan, onion, lemon for topping","Pav (bread rolls)"],
     steps:["Pressure cook sprouted matki 2 whistles.","Heat oil, splutter mustard, curry leaves, onions.","Add Kolhapuri Masala and tomatoes, cook until oil separates.","Add matki, water, kokum. Simmer 15 minutes.","Serve rassa in a bowl topped with farsan, raw onion, lemon. Eat with pav."]
@@ -1499,7 +1501,7 @@ const RECIPES = [
     name:"Fish Curry",
     masala:"Agri Koli Masala",
     brief:"Coastal Maharashtrian fish curry with bold, warming coconut spice base.",
-    emoji:"🐟", color:"linear-gradient(135deg,#2D7D8A,#1A5560)",
+    imgUrl:"https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&q=80",
     desc:"Born from the coastal kitchens of the Agri-Koli community, this fish curry is bold, aromatic and deeply satisfying. The Agri Koli Masala creates a rich red gravy with layers of heat and coastal fragrance.",
     ingredients:["500g fish (surmai or pomfret)","3 tbsp NAAD Agri Koli Masala","1 cup coconut milk","2 onions, 2 tomatoes","Ginger-garlic paste","Kokum (2 pieces)","Oil, salt, fresh coriander"],
     steps:["Marinate fish in half the masala for 20 minutes.","Heat oil, sauté onions until golden.","Add ginger-garlic, tomatoes, remaining Agri Koli Masala. Cook 5 min.","Add coconut milk and kokum. Bring to simmer.","Gently add marinated fish. Cook 12 minutes.","Garnish with coriander. Serve with steamed rice."]
@@ -1508,7 +1510,7 @@ const RECIPES = [
     name:"Malvani Chicken Sukka",
     masala:"Malvani Masala",
     brief:"Bold, coconut-forward Konkan-style chicken, dry-roasted with Malvani spice.",
-    emoji:"🐚", color:"linear-gradient(135deg,#7A1F1F,#8B1A1A)",
+    imgUrl:"https://images.unsplash.com/photo-1764304733301-3a9f335f0c67?w=600&q=80",
     desc:"A Konkan coastal classic — chicken simmered down until the gravy clings to every piece, finished dry with fresh coconut. Malvani Masala gives it that signature fiery red colour and deep, layered heat.",
     ingredients:["500g chicken pieces","3 tbsp NAAD Malvani Masala","1 cup fresh coconut, grated","2 onions, finely chopped","Ginger-garlic paste","Curry leaves, oil, salt","Fresh coriander"],
     steps:["Dry roast grated coconut until golden, set aside.","Heat oil, sauté onions and curry leaves until deep brown.","Add ginger-garlic paste, cook 2 minutes.","Add Malvani Masala, cook on low flame 3 minutes until fragrant.","Add chicken, coat well, cook covered 20 minutes.","Stir in roasted coconut, cook uncovered until gravy thickens and clings to the chicken.","Garnish with coriander. Serve with rice bhakri or steamed rice."]
@@ -1517,7 +1519,7 @@ const RECIPES = [
     name:"Bharwa Sambhariya",
     masala:"Methino Sambhariya",
     brief:"Baby vegetables stuffed with a tangy fenugreek-forward spice mix, slow-cooked to perfection.",
-    emoji:"🌾", color:"linear-gradient(135deg,#8B6914,#C0392B)",
+    imgUrl:"https://images.unsplash.com/photo-1631292784640-2b24be784d5d?w=600&q=80",
     desc:"A beloved stuffed-vegetable classic — small brinjals or baby potatoes filled with a fenugreek-and-spice mixture and cooked low and slow. Methino Sambhariya gives the stuffing its distinctive warm, slightly bitter-sweet depth.",
     ingredients:["8-10 small brinjals or baby potatoes","3 tbsp NAAD Methino Sambhariya","Fresh coconut, grated (3 tbsp)","Roasted peanuts, crushed (2 tbsp)","Jaggery (1 tsp)","Oil, salt to taste","Fresh coriander"],
     steps:["Mix Methino Sambhariya, coconut, crushed peanuts and jaggery into a dry stuffing.","Slit vegetables without cutting through, stuff generously.","Heat oil in a heavy-bottomed pan, place stuffed vegetables carefully.","Sprinkle any remaining stuffing over the top.","Cover and cook on low flame 20-25 minutes, turning gently.","Garnish with coriander. Serve hot with phulka or bhakri."]
@@ -1526,7 +1528,7 @@ const RECIPES = [
     name:"Dal Tadka",
     masala:"Garam Masala",
     brief:"Everyday comfort dal, finished with a hot tempering of NAAD Garam Masala.",
-    emoji:"✨", color:"linear-gradient(135deg,#5C3317,#D4A017)",
+    imgUrl:"https://images.unsplash.com/photo-1567529854338-fc097b962123?w=600&q=80",
     desc:"Simple, warming and endlessly comforting — yellow dal simmered soft, finished with a sizzling tadka where Garam Masala's deep aromatic blend does all the work. The kind of dish that turns a weekday dinner into something special.",
     ingredients:["1 cup toor dal (split pigeon peas)","1 tsp NAAD Garam Masala","2 tomatoes, chopped","1 onion, finely chopped","Ginger-garlic paste","Cumin seeds, dried red chilli","Ghee, oil, salt, fresh coriander"],
     steps:["Pressure cook dal with turmeric and salt until soft, 3-4 whistles.","Mash lightly and set aside.","Heat ghee, add cumin seeds and dried red chilli, let them crackle.","Add onions, sauté until golden, then ginger-garlic paste.","Add tomatoes, cook until soft, then stir in NAAD Garam Masala.","Pour this tempering over the cooked dal, simmer 5 minutes.","Garnish with coriander. Serve with steamed rice or roti."]
@@ -1535,7 +1537,7 @@ const RECIPES = [
     name:"Vangi Bhaat",
     masala:"Goda Masala",
     brief:"Fragrant Maharashtrian brinjal rice, built on the earthy warmth of Goda Masala.",
-    emoji:"🌿", color:"linear-gradient(135deg,#5C8A3A,#2D5A27)",
+    imgUrl:"https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=600&q=80",
     desc:"A one-pot Maharashtrian classic — rice tossed with fried brinjal and a spiced Goda Masala tempering. Fragrant, comforting, and one of the best everyday showcases for what makes Goda Masala special.",
     ingredients:["2 cups cooked rice (cooled)","2 tbsp NAAD Goda Masala","2 small brinjals, cubed","Roasted peanuts (2 tbsp)","Mustard seeds, curry leaves","Turmeric, oil, salt","Fresh coriander"],
     steps:["Shallow fry brinjal cubes until golden, set aside.","Heat oil, splutter mustard seeds and curry leaves.","Add turmeric and NAAD Goda Masala, cook 1 minute on low flame.","Add fried brinjal and roasted peanuts, mix well.","Gently fold in cooked rice, taking care not to break the grains.","Cook covered on low flame 5 minutes for flavours to combine.","Garnish with coriander. Serve with raita or kadhi."]
@@ -1546,7 +1548,9 @@ function renderRecipes() {
   const grid = document.getElementById('recipesGrid');
   grid.innerHTML = RECIPES.map((r,i)=>`
     <div class="recipe-card reveal">
-      <div class="recipe-img" style="background:${r.color};display:flex;align-items:center;justify-content:center;font-size:3.2rem;">${r.emoji}</div>
+      <div class="recipe-img">
+        <img src="${r.imgUrl}" alt="${r.name}" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div style=&quot;width:100%;height:100%;background:linear-gradient(135deg,#5C3317,#8B1A1A);display:flex;align-items:center;justify-content:center;font-size:3rem;&quot;&gt;🍲&lt;/div&gt;'">
+      </div>
       <div class="recipe-body">
         <div class="recipe-masala-tag">Uses: ${r.masala}</div>
         <div class="recipe-name">${r.name}</div>
@@ -1559,9 +1563,8 @@ function renderRecipes() {
 
 function openRecipe(i) {
   const r = RECIPES[i];
-  const modalImgEl = document.getElementById('modalImg');
-  modalImgEl.style.background = r.color;
-  modalImgEl.textContent = r.emoji;
+  document.getElementById('modalImg').src = r.imgUrl;
+  document.getElementById('modalImg').alt = r.name;
   document.getElementById('modalContent').innerHTML = `
     <div class="modal-tag">Uses: ${r.masala}</div>
     <div class="modal-title">${r.name}</div>
